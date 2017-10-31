@@ -12,7 +12,7 @@ pip install requirements.txt
 python Chess.py
 ```
 
-#Have fun! 
+*Have fun!*
 
 * Stockfish can be used as a AI Chess Engine (Improvements)
 
