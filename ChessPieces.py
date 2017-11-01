@@ -207,28 +207,25 @@ class King(ChessPiece):
         self.bool = 0  # can castle?
 
     def movelist(self):
-        make_lines(self.square, squareCenters, [
-            math.pi,
-            math.pi / 2,
-            0,
-            -math.pi / 2,
-            math.pi / 4,
-            3 * math.pi / 4,
-            -math.pi / 4,
-            -3 * math.pi / 4,
-        ])
-        move_list = []
+
+        possible_move_list = []
         for Square in squareCenters:
-            for piece in Pieces:
-                if Square.colliderect(self.square):
-                    move_list.append(Square)
-                elif Square in move_list and piece.team != self.team \
-                        and Square in piece.movelist():
-                    move_list.remove(Square)
+            if Square.colliderect(self.square):
+                possible_move_list.append(Square)
 
         for piece in Pieces:
-            if piece.square in move_list and piece.team == self.team:
-                move_list.remove(piece.square)
+            if piece.square in possible_move_list and piece.team == self.team:
+                possible_move_list.remove(piece.square)
+
+        move_list = []
+        for move in possible_move_list:
+            safe = True
+            for piece in Pieces:
+                if type(piece) != King and move in piece.movelist() and piece.team != self.team:
+                    safe = False
+            if safe:
+                move_list.append(move)
+
         return move_list
 
     def undercheck(self):

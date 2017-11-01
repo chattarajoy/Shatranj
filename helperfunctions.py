@@ -65,8 +65,7 @@ def isfarther(start, pos1, pos2):
     if type(pos2) == int:  # for pawns
         return pos2 > distance_formula(start.center, pos1)
     else:
-        return distance_formula(start.center, pos2) \
-               > distance_formula(start.center, pos1)
+        return distance_formula(start.center, pos2) > distance_formula(start.center, pos1)
 
 
 def nearest_piece(position, listof):

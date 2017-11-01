@@ -20,6 +20,10 @@ def game():
         turn = teams[0]
         checkquitgame()
         pieceholder = None
+        for piece in Pieces:
+            if type(piece) == King and piece.team == turn:
+                check = piece.undercheck()
+                checkmate = piece.checkforcheckmate()
         if checkmate:
             # game over
             drawboard([gray, violet])
@@ -63,8 +67,6 @@ def game():
                     if type(piece) == King and piece.team == turn:
                         check = piece.undercheck()
                         checkmate = piece.checkforcheckmate()
-                        if checkmate:
-                            continue
 
                 if otherpiece and otherpiece != TargetPiece \
                         and otherpiece.team == TargetPiece.team:
