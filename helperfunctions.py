@@ -1,26 +1,20 @@
 import math
-from sys import exit
 
 import pygame
 from pygame.display import set_mode
 from pygame.draw import rect
-from pygame.locals import QUIT, KEYUP, K_ESCAPE
-from pygame.locals import Rect
-from tkinter import Tk
-from tkinter import messagebox
+from pygame.locals import QUIT, KEYUP, K_ESCAPE, Rect
+from sys import exit
+
+from tkinter import Tk, messagebox
 
 squareCenters = []
 ScreenWidth = BoardWidth = 640
 ScreenHeight = BoardHeight = 640
 screen = set_mode((ScreenWidth, ScreenHeight))
-black = (0, 0, 0)
-white = (255, 255, 255)
 light_brown = (251, 196, 117)
 gray = (100, 100, 100)
-green = (34, 139, 34)
 violet = (238, 130, 238)
-blue = (0, 0, 128)
-gold = (255, 215, 0)
 dark_brown = (139, 69, 0)
 colors = [dark_brown, light_brown]
 
@@ -59,8 +53,7 @@ def square(x):
 
 def distance_formula(pos1, pos2):
     # pos1 and pos2 are tuples of 2 numbers
-
-    return math.sqrt(square(pos2[0] - pos1[0]) + square(pos2[1] - pos1[1]))
+     return math.sqrt(square(pos2[0] - pos1[0]) + square(pos2[1] - pos1[1]))
 
 
 def isfarther(start, pos1, pos2):

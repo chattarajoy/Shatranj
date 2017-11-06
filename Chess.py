@@ -46,7 +46,6 @@ def game():
 
         drawboard(colors)
 
-
         # get cursor
         Cursor = pygame.mouse.get_pos()
         # check for any events
@@ -136,11 +135,9 @@ def game():
         pygame.display.flip()
 
 
-
-
 pygame.display.set_caption('Shatranj')
 FPS = pygame.time.Clock()
-FPS.tick(120)
+FPS.tick(30)
 
 if __name__ == '__main__':
     game()
