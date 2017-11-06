@@ -20,13 +20,11 @@ colors = [dark_brown, light_brown]
 
 
 def drawboard(_colors):
-    # 0 1 2 3 4 5 6 7
-    # 9 10 11 12 13 14 15  etc
     increment = BoardWidth / 8
     index = 1  # toswitchcolors (index - 1) * -1
     for column in range(8):
         for row in range(8):
-            Square = Rect(row * increment, column * increment, increment+1, increment+1)
+            Square = Rect(row * increment, column * increment, increment + 1, increment + 1)
             if Square not in squareCenters:
                 squareCenters.append(Square)
             rect(screen, _colors[index], Square)
