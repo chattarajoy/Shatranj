@@ -3,6 +3,8 @@ import math
 from pygame.display import set_mode
 from pygame.draw import rect
 from pygame.locals import Rect
+from tkinter import *
+from tkinter import messagebox
 
 
 squareCenters = []
@@ -79,3 +81,11 @@ def nearest_piece(position, listof):
         return nearest  # only works when close
     else:
         return None
+
+def show_checkmate(teams):
+    Tk().wm_withdraw()  # to hide the main window
+    messagebox.showinfo("CheckMate", teams[1] + " wins!")
+
+def show_check(teams):
+    Tk().wm_withdraw()  # to hide the main window
+    messagebox.showinfo("Check!", teams[0] + "'s King under check")

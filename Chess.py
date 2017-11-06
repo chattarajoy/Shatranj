@@ -8,27 +8,45 @@ from ChessPieces import *
 # noinspection PyUnusedLocal
 def game():
     # The Game loop
+    SHOW_END_GAME = 1
     Mousedown2 = False
     Mousedown = False
     Mousereleased = False
     TargetPiece = None
     checkmate = False
+    check_message = False
     check = False
     teams = ['white', 'black']
+    colors = [dark_brown, light_brown]
+    drawboard(colors)
 
     while True:
         turn = teams[0]
         checkquitgame()
         pieceholder = None
+
         for piece in Pieces:
             if type(piece) == King and piece.team == turn:
                 check = piece.undercheck()
-                checkmate = piece.checkforcheckmate()
+                if not check:
+                    check_message = False
+                if piece.checkforcheckmate():
+                    checkmate = True
+
         if checkmate:
             # game over
-            drawboard([gray, violet])
-        else:
+            colors = [gray, violet]
             drawboard(colors)
+            if SHOW_END_GAME:
+                show_checkmate(teams)
+                SHOW_END_GAME = 0
+        elif check and not check_message:
+            show_check(teams)
+            check_message = True
+            continue
+
+        drawboard(colors)
+
 
         # get cursor
         Cursor = pygame.mouse.get_pos()
