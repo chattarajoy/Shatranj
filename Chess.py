@@ -1,6 +1,5 @@
 # coding=utf-8
-from pygame.locals import MOUSEBUTTONDOWN, MOUSEBUTTONUP, QUIT, KEYUP, K_ESCAPE
-from sys import exit
+from pygame.locals import MOUSEBUTTONDOWN, MOUSEBUTTONUP
 
 from ChessPieces import *
 
@@ -137,17 +136,6 @@ def game():
         pygame.display.flip()
 
 
-def checkquitgame():
-    for _ in pygame.event.get(QUIT):
-        print len(squareCenters)
-        pygame.quit()
-        exit()
-
-    for event in pygame.event.get(KEYUP):
-        if event.key == K_ESCAPE:
-            pygame.quit()
-            exit()
-        pygame.event.post(event)
 
 
 pygame.display.set_caption('Shatranj')

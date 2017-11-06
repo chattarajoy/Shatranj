@@ -1,5 +1,3 @@
-import pygame
-
 from helperfunctions import *
 
 

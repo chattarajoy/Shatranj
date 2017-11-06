@@ -1,11 +1,13 @@
 import math
+from sys import exit
 
+import pygame
 from pygame.display import set_mode
 from pygame.draw import rect
+from pygame.locals import QUIT, KEYUP, K_ESCAPE
 from pygame.locals import Rect
-from tkinter import *
+from tkinter import Tk
 from tkinter import messagebox
-
 
 squareCenters = []
 ScreenWidth = BoardWidth = 640
@@ -89,3 +91,16 @@ def show_checkmate(teams):
 def show_check(teams):
     Tk().wm_withdraw()  # to hide the main window
     messagebox.showinfo("Check!", teams[0] + "'s King under check")
+
+
+def checkquitgame():
+    for _ in pygame.event.get(QUIT):
+        print len(squareCenters)
+        pygame.quit()
+        exit()
+
+    for event in pygame.event.get(KEYUP):
+        if event.key == K_ESCAPE:
+            pygame.quit()
+            exit()
+        pygame.event.post(event)
