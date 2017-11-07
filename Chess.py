@@ -100,6 +100,7 @@ def game():
                     # take enemy piece
                     for piece in Pieces:
                         if piece == otherpiece:
+                            pieceholder = piece
                             Pieces.remove(piece)
                             TargetPiece.update(newspot)
                     teams = teams[::-1]  # switch teams
@@ -111,6 +112,7 @@ def game():
                     teams = teams[::-1]  # switch teams
 
                 if True:  # always check every turn at end
+                    check = False
                     for piece in Pieces:
                         if type(piece) == King and piece.team == turn:
                             check = piece.undercheck()

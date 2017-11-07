@@ -223,8 +223,7 @@ class King(ChessPiece):
 
     def undercheck(self):
         for piece in Pieces:
-            if self.square in piece.movelist() and piece.team \
-                    != self.team:
+            if self.square in piece.movelist() and piece.team != self.team:
                 return True
         return False
 
