@@ -2,7 +2,7 @@
 
 * Player vs Player chess game built using PyGame 
 
-* Must have Python 3.4 and Pygame 1.9.2 installed.
+* Must have Python 2.7 and Pygame 1.9.2 installed.
 
 ### Installation Instructions
 
