@@ -8,7 +8,7 @@
 
 > Run the following commands
 ```commandline
-pip install requirements.txt
+pip install -r requirements.txt
 python Chess.py
 ```
 
